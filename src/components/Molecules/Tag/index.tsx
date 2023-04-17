@@ -1,6 +1,6 @@
-import Typography from 'components/Atom/Typography';
 import React from 'react';
 import { CloseButton, Icon, Wrapper } from './style';
+import Typography from '../../Atom/Typography/index';
 
 interface Props {
   text: string;
