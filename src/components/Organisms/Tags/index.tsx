@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Tag from 'components/Molecules/Tag';
 import { Wrapper } from './style';
+import Tag from '../../Molecules/Tag/index';
 
 interface Props {
   defaultData?: Array<any>;
