@@ -12,7 +12,7 @@ const Tags: React.FC<Props> = props => {
   const [data, setData] = useState<any>([]);
 
   // Props
-  const { defaultData, placeHolder } = props;
+  const { defaultData = ['JavaScript', 'React'], placeHolder } = props;
 
   //   Methods
   const handleInputChange = (e: { target: HTMLInputElement }) => {
