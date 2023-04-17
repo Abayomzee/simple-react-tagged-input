@@ -1,12 +1,7 @@
 import React from 'react';
-import Tags from 'components/Organisms/Tags';
+import Tags from './components/Organisms/Tags/index';
 
 // Delete me
 export const Thing = () => {
-  return (
-    <>
-      <div>the snozzberries taste like snozzberries</div>;
-      <Tags />
-    </>
-  );
+  return <Tags />;
 };
