@@ -21,9 +21,9 @@ const Tag: React.FC<Props> = props => {
     bodyClass,
     textClass,
     removeBtnClass,
-    removeLabelClass,
     removeLabel,
     removeLabelColor,
+    removeLabelClass,
     bgColor,
   } = props;
 
