@@ -19,12 +19,12 @@ const Tag: React.FC<Props> = props => {
   const {
     text,
     bodyClass,
+    removeLabelColor,
     textClass,
     removeBtnClass,
     removeLabel,
     removeLabelClass,
     bgColor,
-    removeLabelColor,
   } = props;
 
   // Data to display
