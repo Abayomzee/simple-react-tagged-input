@@ -4,7 +4,7 @@ import Tag from '../../Molecules/Tag/index';
 
 interface Props {
   defaultData?: Array<any>;
-  placeHolder?: string;
+  placeholder?: string;
 }
 const Tags: React.FC<Props> = props => {
   // States
@@ -12,7 +12,7 @@ const Tags: React.FC<Props> = props => {
   const [data, setData] = useState<any>([]);
 
   // Props
-  const { defaultData = ['JavaScript', 'React'], placeHolder } = props;
+  const { defaultData = ['JavaScript', 'React'], placeholder } = props;
 
   //   Methods
   const handleInputChange = (e: { target: HTMLInputElement }) => {
@@ -39,7 +39,7 @@ const Tags: React.FC<Props> = props => {
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        placeholder={placeHolder || 'Type and press Enter'}
+        placeholder={placeholder || 'Type and press Enter'}
       />
     </Wrapper>
   );
