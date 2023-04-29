@@ -9,13 +9,13 @@ interface Props {
   removeLabel?: 'times' | 'minus';
   removeLabelClass?: string;
   removeLabelColor?: string;
-  removeLabelStyle: any;
+  removeLabelStyle?: any;
 
   bodyClass?: string;
   bgColor?: string;
   textClass?: string;
   removeBtnClass?: string;
-  removeBtnStyle: any;
+  removeBtnStyle?: any;
 }
 const Tag: React.FC<Props> = props => {
   // Props
