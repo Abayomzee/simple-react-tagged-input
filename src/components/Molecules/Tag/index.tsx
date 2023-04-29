@@ -23,13 +23,13 @@ const Tag: React.FC<Props> = props => {
     text,
     bodyClass,
     textClass,
+    bgColor,
     removeBtnClass,
     removeLabel,
     removeLabelColor,
     removeLabelClass,
     removeLabelStyle,
     removeBtnStyle,
-    bgColor,
   } = props;
 
   // Data to display
