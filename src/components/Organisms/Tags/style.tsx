@@ -5,4 +5,12 @@ export const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 5px;
+
+  .tag-input {
+    border: none;
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
 `;

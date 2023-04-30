@@ -5,6 +5,9 @@ import Tag from '../../Molecules/Tag/index';
 interface Props {
   defaultData?: Array<any>;
   placeholder?: string;
+  autoFocus?: boolean;
+
+  inputStyle?: any;
 }
 const Tags: React.FC<Props> = props => {
   // States
@@ -12,7 +15,11 @@ const Tags: React.FC<Props> = props => {
   const [data, setData] = useState<any>([]);
 
   // Props
-  const { defaultData = ['JavaScript', 'React'], placeholder } = props;
+  const {
+    defaultData = ['JavaScript', 'React'],
+    placeholder,
+    inputStyle,
+  } = props;
 
   //   Methods
   const handleInputChange = (e: { target: HTMLInputElement }) => {
@@ -37,10 +44,12 @@ const Tags: React.FC<Props> = props => {
         : data.map((t: any, index: any) => <Tag key={index} text={t} />)}
       <input
         type="text"
+        className="tag-input"
         value={inputValue}
         onChange={handleInputChange}
         placeholder={placeholder || 'Type and press Enter'}
-        autoFocus={true}
+        style={inputStyle}
+        {...props}
       />
     </Wrapper>
   );

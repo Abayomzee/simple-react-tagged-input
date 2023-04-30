@@ -6,7 +6,7 @@ import ReactSimpleTaggedInput from '../src/index';
 const App = () => {
   return (
     <div>
-      <ReactSimpleTaggedInput placeholder='You?' />
+      <ReactSimpleTaggedInput autoFocus />
     </div>
   );
 };

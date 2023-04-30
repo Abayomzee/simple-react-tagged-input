@@ -1,14 +1,48 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+// Animation
+const TagAnimateIn = keyframes`
+0% {
+    transform: tranalateX(5px);
+  }
+  100% {
+    transform: tranalateX(0);
+  }
+`;
+
+const TagAnimateOut = keyframes`
+0% {
+    transform: tranalateX(0);
+    opacity: 1;
+  }
+  95% {
+    transform: tranalateX(5px);
+    opacity: 0;
+  }
+  100% {
+    transform: tranalateX(5px);
+    opacity: 0;
+    display: none;
+  }
+`;
+// End of  Animation
 
 export const Wrapper = styled.div<{ bgColor?: string }>`
   display: flex;
   align-items: center;
-  gap: 1px;
   border-radius: 4px;
-  padding: 4px 8px;
+  padding: 4px 0 4px 8px;
   background-color: ${({ bgColor }) => (bgColor ? bgColor : '#f3f3f3')};
   font-family: 'Poppins', sans-serif;
   user-select: none;
+
+  &.animate-in {
+    animation: ${TagAnimateIn} 0.3s ease;
+  }
+
+  &.animate-out {
+    animation: ${TagAnimateOut} 0.5s ease;
+  }
 
   .tag-name {
     font-size: 11px;
@@ -36,5 +70,5 @@ export const Icon = styled.span<{ color?: string }>`
   color: ${({ color }) => (color ? color : '#a6a6a6')};
   font-weight: 700;
   font-size: 11px;
-  padding: 1px 2px;
+  padding: 1px 4px 1px 2px;
 `;
