@@ -48,7 +48,7 @@ const Tags: React.FC<Props> = props => {
         value={inputValue}
         onChange={handleInputChange}
         placeholder={placeholder || 'Type and press Enter'}
-        style={inputStyle}
+        style={inputStyle || {}}
         {...props}
       />
     </Wrapper>

@@ -35,10 +35,17 @@ const Tag: React.FC<Props> = props => {
 
   // Data to display
   return (
-    <Wrapper className={`${bodyClass}`} bgColor={bgColor}>
-      <Typography as="span" className={`tag-name ${textClass}`} text={text} />
+    <Wrapper
+      className={`${bodyClass ? bodyClass : ''}`}
+      bgColor={`${bgColor ? bgColor : ''}`}
+    >
+      <Typography
+        as="span"
+        className={`tag-name ${textClass ? textClass : ''}`}
+        text={text}
+      />
       <CloseButton
-        className={`btn-close ${removeBtnClass}`}
+        className={`btn-close ${removeBtnClass ? removeBtnClass : ''}`}
         style={removeBtnStyle}
       >
         <Icon
