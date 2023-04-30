@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const Wrapper = styled.div<{ bgColor?: string }>`
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 1px;
   border-radius: 4px;
   padding: 4px 8px;
-  background-color: ${({ bgColor }) => (bgColor ? bgColor : '#e8e8e8')};
+  background-color: ${({ bgColor }) => (bgColor ? bgColor : '#f3f3f3')};
   font-family: 'Poppins', sans-serif;
+  user-select: none;
 
   .tag-name {
     font-size: 11px;
@@ -21,6 +22,7 @@ export const CloseButton = styled.button`
   cursor: pointer;
   border: none;
   font-family: inherit;
+  background-color: transparent;
 
   &:active,
   &:focus {
