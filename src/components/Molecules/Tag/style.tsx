@@ -32,7 +32,7 @@ export const Wrapper = styled.div<{ bgColor?: string }>`
   align-items: center;
   gap: 3px;
   border-radius: 4px;
-  padding: 4px 4px 4px 4px;
+  padding: 4px 4px 4px 8px;
   background-color: ${({ bgColor }) => (bgColor ? bgColor : '#f3f3f3')};
   font-family: 'Poppins', sans-serif;
   user-select: none;

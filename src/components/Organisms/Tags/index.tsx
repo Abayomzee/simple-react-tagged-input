@@ -6,6 +6,7 @@ interface Props {
   defaultData?: Array<any>;
   placeholder?: string;
   autoFocus?: boolean;
+  dataType?: 'array' | 'object';
 
   inputStyle?: any;
 }
@@ -13,6 +14,7 @@ const Tags: React.FC<Props> = props => {
   // States
   const [inputValue, setInputValue] = useState('');
   const [data, setData] = useState<any>([]);
+  const [dataObj, setDataObj] = useState<any>([]);
 
   // Props
   const {
@@ -24,9 +26,21 @@ const Tags: React.FC<Props> = props => {
   //   Methods
   const handleInputChange = (e: { target: HTMLInputElement }) => {
     const { value } = e.target;
-    const isEmptyValue = !!value.trim();
-    if (isEmptyValue) return;
-    setInputValue(value);
+    const trimmedValue = value.trim() === '' ? '' : value;
+    setInputValue(trimmedValue);
+  };
+
+  const handleAddTag = () => {
+    if (inputValue.length > 0) {
+      setData((data: any) => [...data, inputValue]);
+    } else return;
+    setInputValue('');
+  };
+
+  const handleRemoveTag = (id: any) => {
+    let newTags = data;
+    newTags.splice(id, 1);
+    setData([...newTags]);
   };
 
   // Effects
@@ -47,6 +61,7 @@ const Tags: React.FC<Props> = props => {
         className="tag-input"
         value={inputValue}
         onChange={handleInputChange}
+        onKeyDown={e => e.key === 'Enter' && handleAddTag()}
         placeholder={placeholder || 'Type and press Enter'}
         style={inputStyle || {}}
         {...props}
