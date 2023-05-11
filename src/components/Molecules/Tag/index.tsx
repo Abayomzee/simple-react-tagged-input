@@ -29,8 +29,8 @@ const Tag: React.FC<Props> = props => {
     removeLabelColor,
     removeLabelClass,
     removeBtnClass,
-    removeLabelStyle,
     removeBtnStyle,
+    removeLabelStyle,
   } = props;
 
   // Data to display
