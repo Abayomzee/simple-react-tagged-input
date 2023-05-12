@@ -3,34 +3,34 @@ import { Wrapper } from './style';
 import Tag from '../../Molecules/Tag/index';
 
 interface Props {
-  defaultData?: Array<any>;
-  placeholder?: string;
-  autoFocus?: boolean;
-  dataType?: 'array' | 'object';
+  defaultData?: Array<any>; // Preloaded Data
+  placeholder?: string; // Input tag placeholder
+  autoFocus?: boolean; // Input fiield auto focus
+  dataType?: 'array' | 'object'; // Type of outputted data, either Array<string> or Array<object>
 
-  inputStyle?: any;
+  inputStyle?: any; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
+  setData?: (data: Array<any>) => void;
 }
 const Tags: React.FC<Props> = props => {
   // States
   const [inputValue, setInputValue] = useState('');
-  const [data, setData] =
-    props.dataType === 'array' ? useState<any>([]) : useState<any>([]);
-  // const [dataObj, setDataObj] = useState<any>([]);
+  const [data, setTagData] = useState<any>([]);
 
   // Props
   const {
     defaultData = [
-      'JavaScript',
-      'React',
-      'Abayomi',
-      'Oladeinde',
-      'Ajadi',
-      'Okegbenro',
-      'Olasunkanmi',
-      'Daniel',
+      { id: '1', text: 'JavaScript' },
+      { id: '2', text: 'React' },
+      { id: 'Abayo', text: 'Abayomi' },
+      { id: 'Ajadi', text: 'Ajadi' },
+      { id: 'Okegb', text: 'Okegbenro' },
+      { id: 'Olasu', text: 'Olasunkanmi' },
+      { id: 'Danie', text: 'Daniel' },
     ],
     placeholder,
     inputStyle,
+    dataType = 'array',
+    setData,
   } = props;
 
   //   Methods
@@ -40,23 +40,38 @@ const Tags: React.FC<Props> = props => {
     setInputValue(trimmedValue);
   };
 
+  const handleDataUpdate = () => {
+    if (dataType === 'object') {
+      setData!([...data]);
+    } else {
+      const newData = data.map((d: any) => d.text);
+      setData!([...newData]);
+    }
+  };
+
   const handleAddTag = () => {
     if (inputValue.length > 0) {
-      setData((data: any) => [...data, inputValue]);
+      setTagData((data: any) => [
+        ...data,
+        { id: Date.now(), text: inputValue },
+      ]);
+      handleDataUpdate();
     } else return;
     setInputValue('');
   };
 
   const handleRemoveTag = (id: any) => {
-    let newTags = data;
-    newTags.splice(id, 1);
-    setData([...newTags]);
+    let tags = [...data];
+    const index = tags.findIndex(tag => tag.id === id);
+    tags.splice(index, 1);
+    setTagData([...tags]);
+    handleDataUpdate();
   };
 
   // Effects
   useEffect(() => {
     if (defaultData!.length) {
-      setData(defaultData);
+      setTagData(defaultData);
     }
   }, []);
 
@@ -65,12 +80,12 @@ const Tags: React.FC<Props> = props => {
     <Wrapper>
       {!data.length
         ? null
-        : data.map((t: any, index: any) => (
+        : data.map((t: any) => (
             <Tag
-              key={index}
-              text={t}
-              id={index}
-              handleRemoveTag={() => handleRemoveTag(index)}
+              key={t.id}
+              text={t.text}
+              id={t.id}
+              handleRemoveTag={() => handleRemoveTag(t.id)}
             />
           ))}
       <input
