@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CloseButton, Icon, Wrapper } from './style';
 import Typography from '../../Atom/Typography/index';
 
 interface Props {
   text: string;
+  id: string | number;
   iconClass?: string;
 
   removeLabel?: 'times' | 'minus';
@@ -16,11 +17,17 @@ interface Props {
   textClass?: string;
   removeBtnClass?: string;
   removeBtnStyle?: any;
+
+  handleRemoveTag: (id: string | number) => void;
 }
 const Tag: React.FC<Props> = props => {
+  // State
+  const [remove, setRemove] = useState(false);
+
   // Props
   const {
     text,
+    id,
     textClass,
     bodyClass,
     bgColor,
@@ -31,12 +38,16 @@ const Tag: React.FC<Props> = props => {
     removeBtnClass,
     removeBtnStyle,
     removeLabelStyle,
+
+    handleRemoveTag,
   } = props;
 
   // Data to display
   return (
     <Wrapper
-      className={`${bodyClass ? bodyClass : ''}`}
+      className={`animate-in ${remove ? 'animate-out' : ''} ${
+        bodyClass ? bodyClass : ''
+      }`}
       bgColor={`${bgColor ? bgColor : ''}`}
     >
       <Typography
@@ -47,6 +58,12 @@ const Tag: React.FC<Props> = props => {
       <CloseButton
         className={`btn-close ${removeBtnClass ? removeBtnClass : ''}`}
         style={removeBtnStyle}
+        onClick={() => {
+          setRemove(true);
+          setTimeout(() => {
+            handleRemoveTag(id);
+          }, 300);
+        }}
       >
         <Icon
           className={removeLabelClass}

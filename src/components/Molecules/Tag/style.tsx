@@ -3,26 +3,28 @@ import styled, { keyframes } from 'styled-components';
 // Animation
 const TagAnimateIn = keyframes`
 0% {
-    transform: tranalateX(5px);
+    opacity: 0;
+    transform: translateX(5px);
   }
   100% {
-    transform: tranalateX(0);
+    opacity: 1;
+    transform: translateX(0);
   }
 `;
 
 const TagAnimateOut = keyframes`
 0% {
-    transform: tranalateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
   95% {
-    transform: tranalateX(5px);
+    transform: translateX(5px);
     opacity: 0;
   }
   100% {
-    transform: tranalateX(5px);
+    transform: translateX(5px);
     opacity: 0;
-    display: none;
+    /* display: none; */
   }
 `;
 // End of  Animation
@@ -42,7 +44,7 @@ export const Wrapper = styled.div<{ bgColor?: string }>`
   }
 
   &.animate-out {
-    animation: ${TagAnimateOut} 0.5s ease;
+    animation: ${TagAnimateOut} 0.3s ease;
   }
 
   .tag-name {

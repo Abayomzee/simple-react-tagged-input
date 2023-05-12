@@ -19,7 +19,16 @@ const Tags: React.FC<Props> = props => {
 
   // Props
   const {
-    defaultData = ['JavaScript', 'React'],
+    defaultData = [
+      'JavaScript',
+      'React',
+      'Abayomi',
+      'Oladeinde',
+      'Ajadi',
+      'Okegbenro',
+      'Olasunkanmi',
+      'Daniel',
+    ],
     placeholder,
     inputStyle,
   } = props;
@@ -56,7 +65,14 @@ const Tags: React.FC<Props> = props => {
     <Wrapper>
       {!data.length
         ? null
-        : data.map((t: any, index: any) => <Tag key={index} text={t} />)}
+        : data.map((t: any, index: any) => (
+            <Tag
+              key={index}
+              text={t}
+              id={index}
+              handleRemoveTag={() => handleRemoveTag(index)}
+            />
+          ))}
       <input
         type="text"
         className="tag-input"
