@@ -13,8 +13,9 @@ interface Props {
 const Tags: React.FC<Props> = props => {
   // States
   const [inputValue, setInputValue] = useState('');
-  const [data, setData] = useState<any>([]);
-  const [dataObj, setDataObj] = useState<any>([]);
+  const [data, setData] =
+    props.dataType === 'array' ? useState<any>([]) : useState<any>([]);
+  // const [dataObj, setDataObj] = useState<any>([]);
 
   // Props
   const {
