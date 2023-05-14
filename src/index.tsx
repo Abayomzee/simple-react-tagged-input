@@ -3,7 +3,8 @@ import Tags from './components/Organisms/Tags/index';
 
 interface Props {
   placeholder?: string;
-  dataType?: 'array' | 'object';
+  onInputChange?: (data: Array<any>) => void;
+  defaultData?: Array<string>; // Preloaded Data
 }
 const ReactSimpleTaggedInput: React.FC<Props> = props => {
   // Data to render

@@ -4,9 +4,13 @@ import * as ReactDOM from 'react-dom';
 import ReactSimpleTaggedInput from '../src/index';
 
 const App = () => {
+  const [selected, setSelected] = React.useState([]);
   return (
     <div>
-      <ReactSimpleTaggedInput autoFocus />
+      {JSON.stringify(selected || [])}
+      <br />
+      <br />
+      <ReactSimpleTaggedInput onInputChange={setSelected} autoFocus />
     </div>
   );
 };
