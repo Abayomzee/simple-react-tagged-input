@@ -4,6 +4,7 @@ import Tags from './components/Organisms/Tags/index';
 interface Props {
   placeholder?: string;
   onInputChange?: (data: Array<any>) => void;
+  onRemoveTag?: (tag?: string) => void;
   defaultData?: Array<string>; // Preloaded Data
 }
 const ReactSimpleTaggedInput: React.FC<Props> = props => {

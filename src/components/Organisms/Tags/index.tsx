@@ -10,17 +10,24 @@ interface Props {
 
   inputStyle?: any; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
   onInputChange?: (data: Array<String>) => void;
+  onRemoveTag?: (tag?: string) => void;
 }
 const Tags: React.FC<Props> = props => {
   // Refs
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Props
-  const { defaultData, placeholder, inputStyle, onInputChange } = props;
+  const {
+    defaultData,
+    placeholder,
+    inputStyle,
+    onInputChange,
+    onRemoveTag,
+  } = props;
 
   // States
   const [inputValue, setInputValue] = useState('');
-  const [data, setData] = useState<String[]>(
+  const [data, setData] = useState<string[]>(
     defaultData || ['JavaScript', 'React']
   );
 
@@ -43,18 +50,30 @@ const Tags: React.FC<Props> = props => {
 
   const handleRemoveTag = (id: any) => {
     let tags = [...data];
+    let tag = tags[id];
     tags.splice(id, 1);
     setData([...tags]);
     onInputChange!([...tags]);
     inputRef!.current!.focus();
+
+    // Execute onRemoveTag
+    if (onRemoveTag) {
+      onRemoveTag(tag);
+    }
   };
 
   const handleRemoveLastTag = () => {
     if (!inputValue.length) {
       let tags = [...data];
+      let tag = tags.at(-1);
       tags.pop();
       setData([...tags]);
       onInputChange!([...tags]);
+
+      // Execute onRemoveTag
+      if (onRemoveTag) {
+        onRemoveTag(tag);
+      }
     }
   };
 
