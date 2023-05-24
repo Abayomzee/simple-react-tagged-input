@@ -11,6 +11,7 @@ interface Props {
   inputStyle?: any; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
   onInputChange?: (data: Array<String>) => void;
   onRemoveTag?: (tag?: string) => void;
+  onAddTag?: (tag?: string) => void;
 }
 const Tags: React.FC<Props> = props => {
   // Refs
@@ -23,6 +24,7 @@ const Tags: React.FC<Props> = props => {
     inputStyle,
     onInputChange,
     onRemoveTag,
+    onAddTag,
   } = props;
 
   // States
@@ -40,12 +42,17 @@ const Tags: React.FC<Props> = props => {
   };
 
   const handleAddTag = () => {
+    let value = inputValue;
     if (inputValue.length > 0) {
-      setData((data: any) => [...data, inputValue]);
-      onInputChange!([...data, inputValue]);
+      setData((data: any) => [...data, value]);
+      onInputChange!([...data, value]);
     } else return;
 
     setInputValue('');
+
+    if (onAddTag) {
+      onAddTag(value);
+    }
   };
 
   const handleRemoveTag = (id: any) => {

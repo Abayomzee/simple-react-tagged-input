@@ -12,6 +12,10 @@ const App = () => {
     alert(`${tag} has been removed`);
   };
 
+  const handleTagAdd = tag => {
+    alert(`${tag} has been added`);
+  };
+
   // Data to display
   return (
     <div>
@@ -20,7 +24,8 @@ const App = () => {
       <br />
       <ReactSimpleTaggedInput
         onInputChange={setSelected}
-        onRemoveTag={(tag) => handleTagRemove(tag)}
+        onRemoveTag={tag => handleTagRemove(tag)}
+        onAddTag={tag => handleTagAdd(tag)}
         autoFocus
       />
     </div>
