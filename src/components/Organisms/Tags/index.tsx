@@ -7,11 +7,14 @@ interface Props {
   // value?: Array<string>; // Tags value Data
   placeholder?: string; // Input tag placeholder
   autoFocus?: boolean; // Input fiield auto focus
+  canDuplicate?: boolean; // Having multiple tag with the same name
+  editOnRemove?: boolean; // Edit just removed tag
 
   inputStyle?: any; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
   onInputChange?: (data: Array<String>) => void;
   onRemoveTag?: (tag?: string) => void;
   onAddTag?: (tag?: string) => void;
+  onExisting?: (tag?: string) => void;
 }
 const Tags: React.FC<Props> = props => {
   // Refs
@@ -22,9 +25,12 @@ const Tags: React.FC<Props> = props => {
     defaultData,
     placeholder,
     inputStyle,
+    canDuplicate,
+    editOnRemove,
     onInputChange,
     onRemoveTag,
     onAddTag,
+    onExisting,
   } = props;
 
   // States
@@ -44,6 +50,14 @@ const Tags: React.FC<Props> = props => {
   const handleAddTag = () => {
     let value = inputValue;
     if (inputValue.length > 0) {
+      // Check if tag exist
+      if (data.includes(value) && !canDuplicate) {
+        if (onExisting) {
+          onExisting(value);
+        }
+        return;
+      }
+
       setData((data: any) => [...data, value]);
       onInputChange!([...data, value]);
     } else return;
@@ -63,8 +77,12 @@ const Tags: React.FC<Props> = props => {
     onInputChange!([...tags]);
     inputRef!.current!.focus();
 
-    // Execute onRemoveTag
+    if (editOnRemove) {
+      setInputValue(tag);
+    }
+
     if (onRemoveTag) {
+      // Execute onRemoveTag
       onRemoveTag(tag);
     }
   };

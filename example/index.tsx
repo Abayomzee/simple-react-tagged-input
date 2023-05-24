@@ -9,11 +9,11 @@ const App = () => {
 
   // Methods
   const handleTagRemove = tag => {
-    alert(`${tag} has been removed`);
+    console.log(`${tag} has been removed`);
   };
 
   const handleTagAdd = tag => {
-    alert(`${tag} has been added`);
+    console.log(`${tag} has been added`);
   };
 
   // Data to display

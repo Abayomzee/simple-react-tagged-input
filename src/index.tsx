@@ -6,6 +6,7 @@ interface Props {
   onInputChange?: (data: Array<any>) => void;
   onRemoveTag?: (tag?: string) => void;
   defaultData?: Array<string>; // Preloaded Data
+  canDuplicate?: boolean;
 }
 const ReactSimpleTaggedInput: React.FC<Props> = props => {
   // Data to render
