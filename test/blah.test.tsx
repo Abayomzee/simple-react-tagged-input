@@ -9,3 +9,11 @@ describe('it', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 });
+
+describe('it', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<ReactSimpleTaggedInput />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
+});
