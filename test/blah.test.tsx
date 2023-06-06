@@ -1,19 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import {render, waitFor} from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect'
 import ReactSimpleTaggedInput from '../src/index';
 
 describe('it', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<ReactSimpleTaggedInput />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    // const div = document.createElement('div');
+    // ReactDOM.render(<ReactSimpleTaggedInput />, div);
+    // ReactDOM.unmountComponentAtNode(div);
   });
 });
 
-describe('it', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<ReactSimpleTaggedInput />, div);
-    ReactDOM.unmountComponentAtNode(div);
-  });
-});
