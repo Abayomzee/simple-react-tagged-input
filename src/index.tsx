@@ -3,10 +3,12 @@ import Tags from './components/Organisms/Tags/index';
 
 interface Props {
   placeholder?: string;
-  onInputChange?: (data: Array<any>) => void;
+  onInputChange?: (data: any) => void;
   onRemoveTag?: (tag?: string) => void;
-  defaultData?: Array<string>; // Preloaded Data
+  onAddTag?: (tag?: string) => void;
+  defaultData?: any; // Preloaded Data
   canDuplicate?: boolean;
+  autoFocus?: boolean;
 }
 const ReactSimpleTaggedInput: React.FC<Props> = props => {
   // Data to render

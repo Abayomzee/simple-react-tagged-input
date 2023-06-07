@@ -11,7 +11,7 @@ interface Props {
   editOnRemove?: boolean; // Edit just removed tag
 
   inputStyle?: any; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
-  onInputChange?: (data: Array<String>) => void;
+  onInputChange?: (data: any) => void;
   onRemoveTag?: (tag?: string) => void;
   onAddTag?: (tag?: string) => void;
   onExisting?: (tag?: string) => void;
@@ -31,6 +31,7 @@ const Tags: React.FC<Props> = props => {
     onRemoveTag,
     onAddTag,
     onExisting,
+    ...otherProps
   } = props;
 
   // States
@@ -50,16 +51,26 @@ const Tags: React.FC<Props> = props => {
   const handleAddTag = () => {
     let value = inputValue;
     if (inputValue.length > 0) {
+      // Handle multiple additions
+      const multipleTags: any = inputValue.split(',');
+      const isMultiple = multipleTags.length > 1 ? true : false;
+
       // Check if tag exist
-      if (data.includes(value) && !canDuplicate) {
+      if (!isMultiple && data.includes(value) && !canDuplicate) {
         if (onExisting) {
           onExisting(value);
         }
         return;
       }
 
-      setData((data: any) => [...data, value]);
-      onInputChange!([...data, value]);
+      if (isMultiple) {
+        const uniqueData: any = [...new Set([...data, ...multipleTags])];
+        setData(uniqueData);
+        onInputChange!([...data, value]);
+      } else {
+        setData((data: any) => [...data, value]);
+        onInputChange!([...data, value]);
+      }
     } else return;
 
     setInputValue('');
@@ -129,7 +140,7 @@ const Tags: React.FC<Props> = props => {
         onKeyDown={handleKeyDownActions}
         placeholder={placeholder || 'Type and press Enter or Comma'}
         style={inputStyle || {}}
-        {...props}
+        {...otherProps}
       />
     </Wrapper>
   );

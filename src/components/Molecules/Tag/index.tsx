@@ -62,7 +62,7 @@ const Tag: React.FC<Props> = props => {
           setRemove(true);
           setTimeout(() => {
             handleRemoveTag(id);
-          }, 300);
+          }, 250);
         }}
       >
         <Icon

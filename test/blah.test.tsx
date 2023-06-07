@@ -1,14 +1,44 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import {render, waitFor} from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect'
+import React, { useState } from 'react';
+import { render, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import ReactSimpleTaggedInput from '../src/index';
 
-describe('it', () => {
-  it('renders without crashing', () => {
-    // const div = document.createElement('div');
-    // ReactDOM.render(<ReactSimpleTaggedInput />, div);
-    // ReactDOM.unmountComponentAtNode(div);
+// Test Component
+interface Props {
+  defaultdata?: any;
+}
+const App: React.FC<Props> = ({ defaultdata = ['Ade'] }) => {
+  // States
+  const [, setSelected] = useState([]);
+
+  // Data to display
+  return (
+    <div>
+      {/* {JSON.stringify(selected || [])}
+      <br />
+      <br /> */}
+      <ReactSimpleTaggedInput
+        onInputChange={setSelected}
+        defaultData={defaultdata}
+        autoFocus
+      />
+    </div>
+  );
+};
+
+// Test suites
+describe('Render', () => {
+  it('renders without crashing', async () => {
+    const { getByText } = render(<App />);
+    const yesNode = await waitFor(() => getByText('Ade'));
+    expect(yesNode).toBeInTheDocument();
   });
 });
 
+describe('Functionality', () => {
+  it('it adds bulk tag', async () => {
+    const { getByText } = render(<App />);
+    const yesNode = await waitFor(() => getByText('Ade'));
+    expect(yesNode).toBeInTheDocument();
+  });
+});
