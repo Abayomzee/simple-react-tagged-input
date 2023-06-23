@@ -14,9 +14,6 @@ const App: React.FC<Props> = ({ defaultdata = ['Ade'] }) => {
   // Data to display
   return (
     <div>
-      {/* {JSON.stringify(selected || [])}
-      <br />
-      <br /> */}
       <ReactSimpleTaggedInput
         onInputChange={setSelected}
         defaultData={defaultdata}

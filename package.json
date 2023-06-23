@@ -1,5 +1,5 @@
 {
-  "version": "0.0.16",
+  "version": "0.0.17",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -36,6 +36,10 @@
   "name": "react-simple-tagged-input",
   "author": "Okegbenro Abayomi",
   "module": "dist/react-simple-tagged-input.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Abayomzee/simple-react-tagged-input"
+  },
   "size-limit": [
     {
       "path": "dist/react-simple-tagged-input.cjs.production.min.js",
