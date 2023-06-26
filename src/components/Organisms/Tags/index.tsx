@@ -136,8 +136,8 @@ const Tags: React.FC<Props> = props => {
         type="text"
         className="tag-input"
         value={inputValue}
-        onChange={handleInputChange}
         onKeyDown={handleKeyDownActions}
+        onChange={handleInputChange}
         placeholder={placeholder || 'Type and press Enter or Comma'}
         style={inputStyle || {}}
         {...otherProps}
