@@ -68,5 +68,16 @@
   "dependencies": {
     "@types/styled-components": "^5.1.26",
     "styled-components": "^5.3.9"
-  }
+  },
+  "keywords": [
+    "react",
+    "tag",
+    "tags",
+    "input",
+    "light",
+    "component",
+    "minimal",
+    "tiny",
+    "lightweight"
+  ]
 }
