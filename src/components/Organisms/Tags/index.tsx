@@ -37,7 +37,7 @@ const Tags: React.FC<Props> = props => {
   // States
   const [inputValue, setInputValue] = useState('');
   const [data, setData] = useState<string[]>(
-    defaultData || ['JavaScript', 'React']
+    defaultData || ['🍑 Orange', '🥭 Mango', '🍅 Tomato', '🍒 Cherry', '🌹 Flower']
   );
 
   //   Methods
