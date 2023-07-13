@@ -2,6 +2,7 @@ import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import ReactSimpleTaggedInput from '../src/index';
+import './app.css';
 
 const App = () => {
   // States
@@ -18,15 +19,17 @@ const App = () => {
 
   // Data to display
   return (
-    <div>
-      {JSON.stringify(selected || [])}
+    <div className="container">
+      <div className="center">{JSON.stringify(selected || [])}</div>
       <br />
       <br />
       <ReactSimpleTaggedInput
         onInputChange={setSelected}
         onRemoveTag={tag => handleTagRemove(tag)}
         onAddTag={tag => handleTagAdd(tag)}
+        wrapperClass="wrapper"
         autoFocus
+        editOnRemove
       />
     </div>
   );

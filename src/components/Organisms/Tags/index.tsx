@@ -4,13 +4,15 @@ import Tag from '../../Molecules/Tag/index';
 
 interface Props {
   defaultData?: Array<string>; // Preloaded Data
-  // value?: Array<string>; // Tags value Data
   placeholder?: string; // Input tag placeholder
-  autoFocus?: boolean; // Input fiield auto focus
+  autoFocus?: boolean; // Input field auto focus
   canDuplicate?: boolean; // Having multiple tag with the same name
   editOnRemove?: boolean; // Edit just removed tag
 
   inputStyle?: any; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
+  inputClass?: string; // Input field className
+  wrapperStyle?: any; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
+  wrapperClass?: string; // Input field className
   onInputChange?: (data: any) => void;
   onRemoveTag?: (tag?: string) => void;
   onAddTag?: (tag?: string) => void;
@@ -25,6 +27,9 @@ const Tags: React.FC<Props> = props => {
     defaultData,
     placeholder,
     inputStyle,
+    inputClass,
+    wrapperStyle,
+    wrapperClass,
     canDuplicate,
     editOnRemove,
     onInputChange,
@@ -37,7 +42,7 @@ const Tags: React.FC<Props> = props => {
   // States
   const [inputValue, setInputValue] = useState('');
   const [data, setData] = useState<string[]>(
-    defaultData || ['🍑 Orange', '🥭 Mango', '🍅 Tomato', '🍒 Cherry', '🌹 Flower']
+    defaultData || ['JavaScript', 'React']
   );
 
   //   Methods
@@ -120,7 +125,7 @@ const Tags: React.FC<Props> = props => {
 
   // Data to display
   return (
-    <Wrapper>
+    <Wrapper style={wrapperStyle} className={wrapperClass}>
       {!data.length
         ? null
         : data.map((t: any, index: any) => (
@@ -134,11 +139,11 @@ const Tags: React.FC<Props> = props => {
       <input
         ref={inputRef}
         type="text"
-        className="tag-input"
+        className={`tag-input ${inputClass || ''}`}
         value={inputValue}
         onKeyDown={handleKeyDownActions}
         onChange={handleInputChange}
-        placeholder={placeholder || 'Type and press Enter or Comma'}
+        placeholder={placeholder || 'Type and press Enter'}
         style={inputStyle || {}}
         {...otherProps}
       />

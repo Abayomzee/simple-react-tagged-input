@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   .tag-input {
     border: none;
     font-family: 'Poppins', sans-serif;
+    flex-grow: 1;
     &:focus,
     &:active {
       outline: none;

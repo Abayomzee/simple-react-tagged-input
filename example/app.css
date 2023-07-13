@@ -1,0 +1,17 @@
+.container {
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+}
+
+.center {
+  text-align: center;
+}
+
+.wrapper {
+  border: 2px solid green;
+  color: green;
+  padding: 4px;
+  border-radius: 6px;
+}
