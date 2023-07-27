@@ -29,15 +29,16 @@ const TagAnimateOut = keyframes`
 `;
 // End of  Animation
 
-export const Wrapper = styled.div<{ bgColor?: string }>`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 3px;
   border-radius: 4px;
   padding: 4px 4px 4px 8px;
-  background-color: ${({ bgColor }) => (bgColor ? bgColor : '#f3f3f3')};
+  background-color: #f3f3f3;
   font-family: 'Poppins', sans-serif;
   user-select: none;
+  font-size: 11px;
 
   &.animate-in {
     animation: ${TagAnimateIn} 0.3s ease;
@@ -45,10 +46,6 @@ export const Wrapper = styled.div<{ bgColor?: string }>`
 
   &.animate-out {
     animation: ${TagAnimateOut} 0.3s ease;
-  }
-
-  .tag-name {
-    font-size: 11px;
   }
 `;
 
@@ -75,8 +72,8 @@ export const CloseButton = styled.button`
 `;
 
 /* Close button icon style */
-export const Icon = styled.span<{ color?: string }>`
-  color: ${({ color }) => (color ? color : '#a6a6a6')};
+export const Icon = styled.span`
+  color: #a6a6a6;
   font-weight: 700;
   font-size: 11px;
   padding: 1px 3px 1px 2px;

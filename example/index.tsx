@@ -28,8 +28,19 @@ const App = () => {
         onRemoveTag={tag => handleTagRemove(tag)}
         onAddTag={tag => handleTagAdd(tag)}
         wrapperClass="wrapper"
+        wrapperStyle={{
+          border: '2px solid rgba(118, 118, 118, 0.293)',
+          color: '#170080',
+          padding: '4px',
+          borderRadius: '6px',
+        }}
+        tagStyle={{ fontWeight: '700', color: 'red' }}
+        tagRemoveButton={{
+          icon: 'minus',
+          iconStyle: { color: 'white' },
+          buttonStyle: { backgroundColor: 'blue' },
+        }}
         autoFocus
-        editOnRemove
       />
     </div>
   );

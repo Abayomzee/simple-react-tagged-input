@@ -9,14 +9,18 @@ interface Props {
   canDuplicate?: boolean; // Having multiple tag with the same name
   editOnRemove?: boolean; // Edit just removed tag
 
-  inputStyle?: any; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
+  inputStyle?: object; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
   inputClass?: string; // Input field className
-  wrapperStyle?: any; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
+  wrapperStyle?: object; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
   wrapperClass?: string; // Input field className
   onInputChange?: (data: any) => void;
   onRemoveTag?: (tag?: string) => void;
   onAddTag?: (tag?: string) => void;
   onExisting?: (tag?: string) => void;
+
+  // Tag Props
+  tagStyle?: object;
+  tagRemoveButton?: object;
 }
 const Tags: React.FC<Props> = props => {
   // Refs
@@ -24,6 +28,7 @@ const Tags: React.FC<Props> = props => {
 
   // Props
   const {
+    // Tags Props
     defaultData,
     placeholder,
     inputStyle,
@@ -36,6 +41,11 @@ const Tags: React.FC<Props> = props => {
     onRemoveTag,
     onAddTag,
     onExisting,
+    // Tag Props
+    tagStyle,
+    tagRemoveButton = {},
+
+    // Other Unspecified props, mostly for the input field
     ...otherProps
   } = props;
 
@@ -134,6 +144,8 @@ const Tags: React.FC<Props> = props => {
               text={t}
               id={index}
               handleRemoveTag={handleRemoveTag}
+              tagStyle={tagStyle}
+              tagRemoveButton={tagRemoveButton}
             />
           ))}
       <input
@@ -144,7 +156,7 @@ const Tags: React.FC<Props> = props => {
         onKeyDown={handleKeyDownActions}
         onChange={handleInputChange}
         placeholder={placeholder || 'Type and press Enter'}
-        style={inputStyle || {}}
+        style={inputStyle}
         {...otherProps}
       />
     </Wrapper>

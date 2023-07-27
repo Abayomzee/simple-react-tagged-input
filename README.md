@@ -11,7 +11,7 @@ A light react component for tag(s) input
 - 🌴 Add multiple tags at a time
 - 🖲️ Mouse and keyboard support
 - 🗑️ Use Backspace to remove last tag
-- 💅 Themeable
+- 💅 Customizable
 - 🔔 Notify when tag add or remove
 - 🙌 Typescript support
 

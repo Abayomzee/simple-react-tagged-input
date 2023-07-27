@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { CloseButton, Icon, Wrapper } from './style';
 import Typography from '../../Atom/Typography/index';
 
+interface tagRemoveButtonProps {
+  icon?: 'times' | 'minus';
+  iconStyle?: object;
+  buttonStyle?: object;
+}
 interface Props {
   text: string;
   id: string | number;
@@ -12,11 +17,11 @@ interface Props {
   removeLabelColor?: string;
   removeLabelStyle?: any;
 
-  bodyClass?: string;
-  bgColor?: string;
-  textClass?: string;
-  removeBtnClass?: string;
+  tagStyle?: object;
+
   removeBtnStyle?: any;
+
+  tagRemoveButton: tagRemoveButtonProps;
 
   handleRemoveTag: (id: string | number) => void;
 }
@@ -28,36 +33,26 @@ const Tag: React.FC<Props> = props => {
   const {
     text,
     id,
-    textClass,
-    bodyClass,
-    bgColor,
+    tagStyle,
 
-    removeLabel,
-    removeLabelColor,
-    removeLabelClass,
-    removeBtnClass,
-    removeBtnStyle,
-    removeLabelStyle,
-
+    tagRemoveButton,
     handleRemoveTag,
   } = props;
+
+  // Remove Button object
+  console.log({ tagRemoveButton });
+  const { icon, buttonStyle, iconStyle } = tagRemoveButton;
 
   // Data to display
   return (
     <Wrapper
-      className={`animate-in ${remove ? 'animate-out' : ''} ${
-        bodyClass ? bodyClass : ''
-      }`}
-      bgColor={`${bgColor ? bgColor : ''}`}
+      className={`animate-in ${remove ? 'animate-out' : ''}`}
+      style={tagStyle}
     >
-      <Typography
-        as="span"
-        className={`tag-name ${textClass ? textClass : ''}`}
-        text={text}
-      />
+      <Typography as="span" text={text} />
       <CloseButton
-        className={`btn-close ${removeBtnClass ? removeBtnClass : ''}`}
-        style={removeBtnStyle}
+        className={`btn-close`}
+        style={buttonStyle}
         onClick={() => {
           setRemove(true);
           setTimeout(() => {
@@ -65,12 +60,8 @@ const Tag: React.FC<Props> = props => {
           }, 250);
         }}
       >
-        <Icon
-          className={removeLabelClass}
-          color={removeLabelColor}
-          style={removeLabelStyle}
-        >
-          {removeLabel === 'minus' ? <>{'\u002D'}</> : <>{'\u0078'}</>}
+        <Icon style={iconStyle}>
+          {icon === 'minus' ? <>{'\u002D'}</> : <>{'\u0078'}</>}
         </Icon>
       </CloseButton>
     </Wrapper>
