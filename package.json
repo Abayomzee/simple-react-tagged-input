@@ -65,10 +65,6 @@
     "tslib": "^2.5.0",
     "typescript": "^3.9.5"
   },
-  "dependencies": {
-    "@types/styled-components": "^5.1.26",
-    "styled-components": "^5.3.9"
-  },
   "keywords": [
     "react",
     "tag",
@@ -79,5 +75,9 @@
     "minimal",
     "tiny",
     "lightweight"
-  ]
+  ],
+  "dependencies": {
+    "@types/styled-components": "^5.1.26",
+    "styled-components": "^6.0.5"
+  }
 }

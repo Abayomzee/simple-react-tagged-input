@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Wrapper } from './style';
 import Tag from '../../Molecules/Tag/index';
 
-interface tagRemoveButtonProps {
+interface TagRemoveButtonProps {
   icon?: 'times' | 'minus'; // Type of Icon to be shown in the remove button
   iconStyle?: object; // Object containing styles for the icon in the remove button e.g {color: 'red', fontSize: '30px'}
   buttonStyle?: object; // Object containing styles for the remove button e.g {backgroundColor: 'red', padding: '30px'}
@@ -26,7 +26,7 @@ interface Props {
 
   // Tag Props
   tagStyle?: object; // Object containing styles for the tag e.g {backgroundColor: 'red', padding: '30px'}
-  tagRemoveButton: tagRemoveButtonProps; // Check the tagRemoveButtonProps interface above
+  tagRemoveButton?: TagRemoveButtonProps; // Check the tagRemoveButtonProps interface above
 }
 const Tags: React.FC<Props> = props => {
   // Refs
@@ -141,7 +141,10 @@ const Tags: React.FC<Props> = props => {
 
   // Data to display
   return (
-    <Wrapper style={containerStyle} className={containerClassName}>
+    <Wrapper
+      style={containerStyle}
+      className={` ${containerClassName ? containerClassName : ''}`}
+    >
       {!data.length
         ? null
         : data.map((t: any, index: any) => (
@@ -151,7 +154,7 @@ const Tags: React.FC<Props> = props => {
               id={index}
               handleRemoveTag={handleRemoveTag}
               tagStyle={tagStyle}
-              tagRemoveButton={tagRemoveButton}
+              tagRemoveButton={tagRemoveButton || {}}
             />
           ))}
       <input

@@ -34,11 +34,11 @@ const App = () => {
           padding: '4px',
           borderRadius: '6px',
         }}
-        tagStyle={{ fontWeight: '700', color: 'red' }}
+        tagStyle={{ fontWeight: '400', color: 'red' }}
         tagRemoveButton={{
-          icon: 'times',
+          icon: 'minus',
           iconStyle: { color: 'white' },
-          buttonStyle: { backgroundColor: 'blue' },
+          buttonStyle: { backgroundColor: 'tomato' },
         }}
         autoFocus
         onExisting={() => console.log('Existing...')}
