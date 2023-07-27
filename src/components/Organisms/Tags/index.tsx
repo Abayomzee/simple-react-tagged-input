@@ -2,25 +2,31 @@ import React, { useState, useRef } from 'react';
 import { Wrapper } from './style';
 import Tag from '../../Molecules/Tag/index';
 
+interface tagRemoveButtonProps {
+  icon?: 'times' | 'minus'; // Type of Icon to be shown in the remove button
+  iconStyle?: object; // Object containing styles for the icon in the remove button e.g {color: 'red', fontSize: '30px'}
+  buttonStyle?: object; // Object containing styles for the remove button e.g {backgroundColor: 'red', padding: '30px'}
+}
 interface Props {
-  defaultData?: Array<string>; // Preloaded Data
-  placeholder?: string; // Input tag placeholder
-  autoFocus?: boolean; // Input field auto focus
-  canDuplicate?: boolean; // Having multiple tag with the same name
-  editOnRemove?: boolean; // Edit just removed tag
+  defaultData?: Array<string>; // Array of Preloaded Data e.g ['Javascript', 'React']
+  placeholder?: string; // Input element placeholder
+  autoFocus?: boolean; // Input element auto focus
+  canDuplicate?: boolean; // Enable multiple tag with the same name
+  editOnRemove?: boolean; // Enable editing just removed tag
 
-  inputStyle?: object; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
-  inputClass?: string; // Input field className
-  wrapperStyle?: object; // Input field style => format == {color: 'red', backgroundColor: 'blue'}
-  wrapperClass?: string; // Input field className
-  onInputChange?: (data: any) => void;
-  onRemoveTag?: (tag?: string) => void;
-  onAddTag?: (tag?: string) => void;
-  onExisting?: (tag?: string) => void;
+  inputStyle?: object; // Input element style => format == {color: 'red', backgroundColor: 'blue'}
+  inputClass?: string; // Input element className
+  containerStyle?: object; // Input element style => format == {color: 'red', backgroundColor: 'blue'}
+  containerClassName?: string; // Input element className
+
+  onInputChange?: (data: any) => void; // Function to update the tags list when a tag is added or removed
+  onRemoveTag?: (tag?: string) => void; // Function to be triggered when a tag is removed
+  onAddTag?: (tag?: string) => void; // Function to be triggered when a tag is removed
+  onExisting?: (tag?: string) => void; // Function to be triggered when a tag already exist
 
   // Tag Props
-  tagStyle?: object;
-  tagRemoveButton?: object;
+  tagStyle?: object; // Object containing styles for the tag e.g {backgroundColor: 'red', padding: '30px'}
+  tagRemoveButton: tagRemoveButtonProps; // Check the tagRemoveButtonProps interface above
 }
 const Tags: React.FC<Props> = props => {
   // Refs
@@ -33,8 +39,8 @@ const Tags: React.FC<Props> = props => {
     placeholder,
     inputStyle,
     inputClass,
-    wrapperStyle,
-    wrapperClass,
+    containerStyle,
+    containerClassName,
     canDuplicate,
     editOnRemove,
     onInputChange,
@@ -43,9 +49,9 @@ const Tags: React.FC<Props> = props => {
     onExisting,
     // Tag Props
     tagStyle,
-    tagRemoveButton = {},
+    tagRemoveButton,
 
-    // Other Unspecified props, mostly for the input field
+    // Other Unspecified props, majorly for the input field
     ...otherProps
   } = props;
 
@@ -135,7 +141,7 @@ const Tags: React.FC<Props> = props => {
 
   // Data to display
   return (
-    <Wrapper style={wrapperStyle} className={wrapperClass}>
+    <Wrapper style={containerStyle} className={containerClassName}>
       {!data.length
         ? null
         : data.map((t: any, index: any) => (
