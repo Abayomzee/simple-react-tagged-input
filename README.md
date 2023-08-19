@@ -35,4 +35,4 @@ yarn add react-simple-tagged-input
 
 ---
 
-![Demo](./react-tag.gif)
+![Demo](./tag-demo.gif)
