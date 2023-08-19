@@ -35,4 +35,4 @@ yarn add react-simple-tagged-input
 
 ---
 
-![Demo](./tag-demo.gif)
+<img src='./tag-demo.gif' style='width: 600px'>
