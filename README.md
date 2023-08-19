@@ -36,3 +36,44 @@ yarn add react-simple-tagged-input
 ---
 
 <img src='./tag-demo.gif' style='width: 600px'>
+
+```tsx
+import React, { useState } from 'react';
+import ReactSimpleTaggedInput from 'react-simple-tagged-input';
+
+const Demo = () => {
+  // States
+  const [selected, setSelected] = React.useState([]);
+
+  // Methods
+  const handleTagRemove = tag => {
+    console.log(`${tag} has been removed`);
+  };
+
+  const handleTagAdd = tag => {
+    console.log(`${tag} has been added`);
+  };
+
+  // Data to display
+  return (
+    <div>
+      <div className="">{JSON.stringify(selected)}</div>
+      <br />
+      <br />
+      <ReactSimpleTaggedInput
+        onInputChange={setSelected}
+        onRemoveTag={tag => handleTagRemove(tag)}
+        onAddTag={tag => handleTagAdd(tag)}
+        autoFocus
+        containerStyle={{
+          border: '2px solid gray',
+          borderRadius: '5px',
+          padding: '7px',
+        }}
+      />
+    </div>
+  );
+};
+
+export default Demo;
+```

@@ -20,9 +20,8 @@ const App = () => {
   // Data to display
   return (
     <div className="container">
-      <div className="">{JSON.stringify(selected || [])}</div>
-      <br />
-      <br />
+      <div className="">{JSON.stringify(selected)}</div>
+      
       <ReactSimpleTaggedInput
         onInputChange={setSelected}
         onRemoveTag={tag => handleTagRemove(tag)}
