@@ -10,7 +10,6 @@ interface TagRemoveButtonProps {
 interface Props {
   defaultData?: Array<string>; // Array of Preloaded Data e.g ['Javascript', 'React']
   placeholder?: string; // Input element placeholder
-  autoFocus?: boolean; // Input element auto focus
   canDuplicate?: boolean; // Enable multiple tag with the same name
   editOnRemove?: boolean; // Enable editing just removed tag
 
@@ -58,7 +57,7 @@ const Tags: React.FC<Props> = props => {
   // States
   const [inputValue, setInputValue] = useState('');
   const [data, setData] = useState<string[]>(
-    defaultData || ['JavaScript', 'React']
+    defaultData || []
   );
 
   //   Methods

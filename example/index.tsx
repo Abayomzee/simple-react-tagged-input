@@ -20,29 +20,19 @@ const App = () => {
   // Data to display
   return (
     <div className="container">
-      <div className="center">{JSON.stringify(selected || [])}</div>
+      <div className="">{JSON.stringify(selected || [])}</div>
       <br />
       <br />
       <ReactSimpleTaggedInput
         onInputChange={setSelected}
         onRemoveTag={tag => handleTagRemove(tag)}
         onAddTag={tag => handleTagAdd(tag)}
-        containerClassName="wrapper"
-        containerStyle={{
-          border: '2px solid rgba(118, 118, 118, 0.293)',
-          color: '#170080',
-          padding: '4px',
-          borderRadius: '6px',
-        }}
-        tagStyle={{ fontWeight: '400', color: 'red' }}
-        tagRemoveButton={{
-          icon: 'minus',
-          iconStyle: { color: 'white' },
-          buttonStyle: { backgroundColor: 'tomato' },
-        }}
         autoFocus
-        onExisting={() => console.log('Existing...')}
-        canDuplicate
+        containerStyle={{
+          border: '2px solid gray',
+          borderRadius: '5px',
+          padding: '7px',
+        }}
       />
     </div>
   );

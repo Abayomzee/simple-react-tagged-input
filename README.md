@@ -17,6 +17,8 @@ A light react component for tag(s) input
 
 ### ⚒️ Installation
 
+---
+
 via npm
 
 ```bash
@@ -28,3 +30,9 @@ via yarn
 ```bash
 yarn add react-simple-tagged-input
 ```
+
+### 🚀 Demo
+
+---
+
+![Demo](./react-tag.gif)
