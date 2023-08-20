@@ -39,7 +39,7 @@ yarn add react-simple-tagged-input
 
 ```tsx
 import React, { useState } from 'react';
-import ReactSimpleTaggedInput from 'react-simple-tagged-input';
+import {TagInput} from 'react-simple-tagged-input';
 
 const Demo = () => {
   // States
@@ -49,9 +49,11 @@ const Demo = () => {
   const handleTagRemove = tag => {
     console.log(`${tag} has been removed`);
   };
-
   const handleTagAdd = tag => {
     console.log(`${tag} has been added`);
+  };
+  const handleTagExist = tag => {
+    console.log(`${tag} already exit`);
   };
 
   // Data to display
@@ -60,7 +62,7 @@ const Demo = () => {
       <div className="">{JSON.stringify(selected)}</div>
       <br />
       <br />
-      <ReactSimpleTaggedInput
+      <TagInput
         defaultData={['Javascript', 'React', 'Typescript']}
         onInputChange={setSelected}
         onRemoveTag={handleTagRemove}
@@ -87,3 +89,10 @@ const Demo = () => {
 
 export default Demo;
 ```
+
+### 💦 Props
+---
+
+| Prop | Description | Type | Default |  
+|------|-------------|------|---------|
+|``

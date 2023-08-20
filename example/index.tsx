@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import ReactSimpleTaggedInput from '../src/index';
+import { TagInput } from '../src/index';
 import './app.css';
 
 const App = () => {
@@ -24,7 +24,7 @@ const App = () => {
     <div className="container">
       <div className="">{JSON.stringify(selected)}</div>
 
-      <ReactSimpleTaggedInput
+      <TagInput
         defaultData={['Javascript', 'React', 'Typescript']}
         onInputChange={setSelected}
         onRemoveTag={handleTagRemove}
@@ -35,7 +35,6 @@ const App = () => {
           borderRadius: '5px',
           padding: '7px',
         }}
-        
         inputStyle={{ color: 'dodgerblue' }}
         tagStyle={{}}
         tagRemoveButton={{ icon: 'minus', iconStyle: {}, buttonStyle: {} }}

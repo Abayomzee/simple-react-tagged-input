@@ -6,7 +6,6 @@ interface Props {
   defaultData?: any;
   autoFocus?: any;
 }
-const ReactSimpleTaggedInput: React.FC<Props> = props => {
+export const TagInput: React.FC<Props> = props => {
   return <Tags {...props} />;
 };
-export default ReactSimpleTaggedInput;
