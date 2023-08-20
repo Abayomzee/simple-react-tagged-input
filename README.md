@@ -35,11 +35,11 @@ yarn add react-simple-tagged-input
 
 ---
 
-<img src='./tag-demo.gif' style='width: 600px'>
+<img src='./tag-demo.gif' style='width: 500px'>
 
 ```tsx
 import React, { useState } from 'react';
-import {TagInput} from 'react-simple-tagged-input';
+import { TagInput } from 'react-simple-tagged-input';
 
 const Demo = () => {
   // States
@@ -76,10 +76,14 @@ const Demo = () => {
         //
         // inputStyle={{ color: 'dodgerblue' }}
         // tagStyle={{}}
-        // tagRemoveButton={{ icon: 'minus', iconStyle: {}, buttonStyle: {} }}
+        // tagRemoveButton={{
+        //   icon: 'minus',
+        //   iconStyle: { color: 'white' },
+        //   buttonStyle: { backgroundColor: 'tomato' },
+        // }}
         // placeholder=""
-        // canDuplicate
-        // editOnRemove
+        // canDuplicate={false}
+        // editOnRemove={false}
         // inputClass="input-class"
         // containerClassName="container-class"
       />
@@ -90,9 +94,12 @@ const Demo = () => {
 export default Demo;
 ```
 
-### 💦 Props
+### 🍿 Props
+
 ---
 
-| Prop | Description | Type | Default |  
-|------|-------------|------|---------|
+| Prop | Description | Type | Default |
+| ---- | ----------- | ---- | ------- |
+
+
 |``

@@ -37,13 +37,16 @@ const App = () => {
         }}
         inputStyle={{ color: 'dodgerblue' }}
         tagStyle={{}}
-        tagRemoveButton={{ icon: 'minus', iconStyle: {}, buttonStyle: {} }}
+        tagRemoveButton={{
+          icon: 'minus',
+          iconStyle: { color: 'white' },
+          buttonStyle: { backgroundColor: 'tomato' },
+        }}
         placeholder=""
-        canDuplicate
-        editOnRemove
+        canDuplicate={false}
+        editOnRemove={false}
         inputClass="input-class"
         containerClassName="container-class"
-        autoFocus
       />
     </div>
   );
