@@ -12,11 +12,9 @@ const App = () => {
   const handleTagRemove = tag => {
     console.log(`${tag} has been removed`);
   };
-
   const handleTagAdd = tag => {
     console.log(`${tag} has been added`);
   };
-
   const handleTagExist = tag => {
     console.log(`${tag} already exit`);
   };
@@ -27,18 +25,26 @@ const App = () => {
       <div className="">{JSON.stringify(selected)}</div>
 
       <ReactSimpleTaggedInput
+        defaultData={['Javascript', 'React', 'Typescript']}
         onInputChange={setSelected}
         onRemoveTag={handleTagRemove}
         onAddTag={handleTagAdd}
         onExisting={handleTagExist}
-        autoFocus
         style={{
           border: '2px solid gray',
           borderRadius: '5px',
           padding: '7px',
-          maxWidth: '200px',
         }}
-        inputStyle={{ border: '1px solid red', width: 'fit-content' }}
+        
+        inputStyle={{ color: 'dodgerblue' }}
+        tagStyle={{}}
+        tagRemoveButton={{ icon: 'minus', iconStyle: {}, buttonStyle: {} }}
+        placeholder=""
+        canDuplicate
+        editOnRemove
+        inputClass="input-class"
+        containerClassName="container-class"
+        autoFocus
       />
     </div>
   );

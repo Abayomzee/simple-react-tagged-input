@@ -61,15 +61,25 @@ const Demo = () => {
       <br />
       <br />
       <ReactSimpleTaggedInput
+        defaultData={['Javascript', 'React', 'Typescript']}
         onInputChange={setSelected}
-        onRemoveTag={tag => handleTagRemove(tag)}
-        onAddTag={tag => handleTagAdd(tag)}
-        autoFocus
-        containerStyle={{
+        onRemoveTag={handleTagRemove}
+        onAddTag={handleTagAdd}
+        onExisting={handleTagExist}
+        style={{
           border: '2px solid gray',
           borderRadius: '5px',
           padding: '7px',
         }}
+        //
+        // inputStyle={{ color: 'dodgerblue' }}
+        // tagStyle={{}}
+        // tagRemoveButton={{ icon: 'minus', iconStyle: {}, buttonStyle: {} }}
+        // placeholder=""
+        // canDuplicate
+        // editOnRemove
+        // inputClass="input-class"
+        // containerClassName="container-class"
       />
     </div>
   );

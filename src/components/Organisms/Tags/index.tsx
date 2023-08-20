@@ -12,6 +12,7 @@ interface Props {
   placeholder?: string; // Input element placeholder
   canDuplicate?: boolean; // Enable multiple tag with the same name
   editOnRemove?: boolean; // Enable editing just removed tag
+  autoFocus?: boolean;
 
   inputStyle?: object; // Input element style => format == {color: 'red', backgroundColor: 'blue'}
   inputClass?: string; // Input element className
@@ -42,6 +43,7 @@ const Tags: React.FC<Props> = props => {
     containerClassName,
     canDuplicate,
     editOnRemove,
+    autoFocus = true,
     onInputChange,
     onRemoveTag,
     onAddTag,
@@ -165,6 +167,7 @@ const Tags: React.FC<Props> = props => {
         onChange={handleInputChange}
         placeholder={placeholder || 'Type and press Enter'}
         style={inputStyle}
+        autoFocus={autoFocus}
         {...otherProps}
       />
     </Wrapper>
