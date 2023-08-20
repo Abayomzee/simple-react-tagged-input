@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import ReactSimpleTaggedInput from '../src/index';
+import { TagInput } from '../src/index';
 
 // Test Component
 interface Props {
@@ -14,7 +14,7 @@ const App: React.FC<Props> = ({ defaultdata = ['Ade'] }) => {
   // Data to display
   return (
     <div>
-      <ReactSimpleTaggedInput
+      <TagInput
         onInputChange={setSelected}
         defaultData={defaultdata}
         autoFocus

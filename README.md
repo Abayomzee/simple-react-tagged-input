@@ -100,6 +100,3 @@ export default Demo;
 
 | Prop | Description | Type | Default |
 | ---- | ----------- | ---- | ------- |
-
-
-|``
