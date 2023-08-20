@@ -15,7 +15,7 @@ interface Props {
 
   inputStyle?: object; // Input element style => format == {color: 'red', backgroundColor: 'blue'}
   inputClass?: string; // Input element className
-  containerStyle?: object; // Input element style => format == {color: 'red', backgroundColor: 'blue'}
+  style?: object; // Input element style => format == {color: 'red', backgroundColor: 'blue'}
   containerClassName?: string; // Input element className
 
   onInputChange?: (data: any) => void; // Function to update the tags list when a tag is added or removed
@@ -38,7 +38,7 @@ const Tags: React.FC<Props> = props => {
     placeholder,
     inputStyle,
     inputClass,
-    containerStyle,
+    style,
     containerClassName,
     canDuplicate,
     editOnRemove,
@@ -56,9 +56,7 @@ const Tags: React.FC<Props> = props => {
 
   // States
   const [inputValue, setInputValue] = useState('');
-  const [data, setData] = useState<string[]>(
-    defaultData || []
-  );
+  const [data, setData] = useState<string[]>(defaultData || []);
 
   //   Methods
   const handleInputChange = (e: { target: HTMLInputElement }) => {
@@ -96,6 +94,7 @@ const Tags: React.FC<Props> = props => {
     setInputValue('');
 
     if (onAddTag) {
+      delay(1000);
       onAddTag(value);
     }
   };
@@ -114,12 +113,13 @@ const Tags: React.FC<Props> = props => {
 
     if (onRemoveTag) {
       // Execute onRemoveTag
+      delay(1000);
       onRemoveTag(tag);
     }
   };
 
   const handleRemoveLastTag = () => {
-    if (!inputValue.length) {
+    if (!inputValue.length && data.length) {
       let tags = [...data];
       let tag = tags.at(-1);
       tags.pop();
@@ -141,7 +141,7 @@ const Tags: React.FC<Props> = props => {
   // Data to display
   return (
     <Wrapper
-      style={containerStyle}
+      style={style}
       className={` ${containerClassName ? containerClassName : ''}`}
     >
       {!data.length
@@ -172,3 +172,9 @@ const Tags: React.FC<Props> = props => {
 };
 
 export default Tags;
+
+// Utility functions
+
+function delay(time: number) {
+  setTimeout(() => {}, time);
+}

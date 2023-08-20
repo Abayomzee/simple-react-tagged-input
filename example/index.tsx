@@ -17,21 +17,28 @@ const App = () => {
     console.log(`${tag} has been added`);
   };
 
+  const handleTagExist = tag => {
+    console.log(`${tag} already exit`);
+  };
+
   // Data to display
   return (
     <div className="container">
       <div className="">{JSON.stringify(selected)}</div>
-      
+
       <ReactSimpleTaggedInput
         onInputChange={setSelected}
-        onRemoveTag={tag => handleTagRemove(tag)}
-        onAddTag={tag => handleTagAdd(tag)}
+        onRemoveTag={handleTagRemove}
+        onAddTag={handleTagAdd}
+        onExisting={handleTagExist}
         autoFocus
-        containerStyle={{
+        style={{
           border: '2px solid gray',
           borderRadius: '5px',
           padding: '7px',
+          maxWidth: '200px',
         }}
+        inputStyle={{ border: '1px solid red', width: 'fit-content' }}
       />
     </div>
   );
