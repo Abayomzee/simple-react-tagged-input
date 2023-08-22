@@ -98,5 +98,20 @@ export default Demo;
 
 ---
 
-| Prop | Description | Type | Default |
-| ---- | ----------- | ---- | ------- |
+| Prop                 | Description                            | Type     | Default              |
+| -------------------- | -------------------------------------- | -------- | -------------------- |
+| `defaultData`        | Array of preloaded Data                | array    | []                   |
+| `placeholder`        | Placeholder for text input             | string   | Type and press Enter |
+| `canDuplicate`       | Enable multiple tag with the same name | boolean  | false                |
+| `editOnRemove`       | Enable tag editing when removed        | boolean  | false                |
+| `autoFocus`          | autofocus for text input               | boolean  | true                 |
+| `inputStyle`         | Style for text input                   | object   |                      |
+| `inputClass`         | ClassName for text input               | string   |                      |
+| `style`              | style for container                    | object   | {}                   |
+| `containerClassName` | ClassName for container                | string   | ""                   |
+| `onInputChange`      | Callback for onChange event            | function |                      |
+| `onRemoveTag`        | Callback when a tag is removed         | function |                      |
+| `onAddTag`           | Callback when a tag is added           | function |                      |
+| `onExisting`         | Callback when a tag already exist      | function |                      |
+| `tagStyle`           | style for tag                          | object   |                      |
+| `tagRemoveButton`    | tag remove botton props                | object   |                      |
