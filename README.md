@@ -75,9 +75,9 @@ const Demo = () => {
         }}
         //
         // inputStyle={{ color: 'dodgerblue' }}
-        // tagStyle={{}}
+        // tagStyle={{ backgroundColor: 'dodgerblue', color: 'white' }}
         // tagRemoveButton={{
-        //   icon: 'minus',
+        //   icon: 'minus' || 'minus',
         //   iconStyle: { color: 'white' },
         //   buttonStyle: { backgroundColor: 'tomato' },
         // }}
@@ -115,3 +115,11 @@ export default Demo;
 | `onExisting`         | Callback when a tag already exist      | function |                      |
 | `tagStyle`           | style for tag                          | object   |                      |
 | `tagRemoveButton`    | tag remove botton props                | object   |                      |
+
+
+### 👏 Credits
+---
+
+- [TypeScript](https://github.com/microsoft/typescript)
+- [TSDX](https://github.com/jaredpalmer/tsdx)
+- [Goober](https://github.com/cristianbote/goober)

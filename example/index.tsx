@@ -36,9 +36,9 @@ const App = () => {
           padding: '7px',
         }}
         inputStyle={{ color: 'dodgerblue' }}
-        tagStyle={{}}
+        tagStyle={{ backgroundColor: 'dodgerblue', color: 'white' }}
         tagRemoveButton={{
-          icon: 'minus',
+          icon: 'minus' || 'minus',
           iconStyle: { color: 'white' },
           buttonStyle: { backgroundColor: 'tomato' },
         }}
