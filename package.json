@@ -1,5 +1,5 @@
 {
-  "version": "0.0.33",
+  "version": "0.0.34",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -69,6 +69,7 @@
     "react",
     "tag",
     "tags",
+    "tag input",
     "input",
     "light",
     "component",
