@@ -120,6 +120,4 @@ export default Demo;
 ### 👏 Credits
 ---
 
-- [TypeScript](https://github.com/microsoft/typescript)
 - [TSDX](https://github.com/jaredpalmer/tsdx)
-- [Goober](https://github.com/cristianbote/goober)
