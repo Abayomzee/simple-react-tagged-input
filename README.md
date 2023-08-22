@@ -35,7 +35,7 @@ yarn add react-simple-tagged-input
 
 ---
 
-<img src='./tag-demo.gif' style='width: 500px'>
+<img src='./tag-demoo.gif' style='width: 500px'>
 
 ```tsx
 import React, { useState } from 'react';
