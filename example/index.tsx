@@ -43,7 +43,7 @@ const App = () => {
           buttonStyle: { backgroundColor: 'tomato' },
         }}
         placeholder=""
-        canDuplicate={false}
+        canDuplicate={true}
         editOnRemove={false}
         inputClass="input-class"
         containerClassName="container-class"
