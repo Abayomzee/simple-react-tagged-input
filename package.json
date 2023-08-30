@@ -1,5 +1,5 @@
 {
-  "version": "0.0.41",
+  "version": "0.0.42",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -56,13 +56,11 @@
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
-    "@types/styled-components": "^5.1.26",
     "husky": "^8.0.3",
     "parcel": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "size-limit": "^8.2.4",
-    "styled-components": "^6.0.7",
     "tsdx": "^0.14.1",
     "tslib": "^2.5.0",
     "typescript": "^3.9.5"
@@ -79,5 +77,8 @@
     "tiny",
     "lightweight"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "@types/styled-components": "^5.1.26",
+    "styled-components": "^6.0.7"
+  }
 }
