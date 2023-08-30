@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { CloseButton, Icon, Wrapper } from './style';
-import Typography from '../Typography';
 import { TagProps } from './../../types';
 
 const Tag: React.FC<TagProps> = props => {
@@ -19,7 +18,7 @@ const Tag: React.FC<TagProps> = props => {
       className={`animate-in ${remove ? 'animate-out' : ''}`}
       style={tagStyle}
     >
-      <Typography as="span" text={text} />
+      <span>{text}</span>
       <CloseButton
         className={`btn-close`}
         style={buttonStyle}

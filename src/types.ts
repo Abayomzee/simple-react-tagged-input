@@ -1,33 +1,33 @@
 export type TagRemoveButtonProps = {
-  icon?: 'times' | 'minus'; // Type of Icon to be shown in the remove button
-  iconStyle?: object; // Object containing styles for the icon in the remove button e.g {color: 'red', fontSize: '30px'}
-  buttonStyle?: object; // Object containing styles for the remove button e.g {backgroundColor: 'red', padding: '30px'}
+  icon?: 'times' | 'minus';
+  iconStyle?: object;
+  buttonStyle?: object;
 };
 export type TagProps = {
-  text: string; //Tag text
-  id: string | number; // Tag Id
-  tagStyle?: object; // Object containing styles for the tag e.g {backgroundColor: 'red', padding: '30px'}
-  tagRemoveButton: TagRemoveButtonProps; // Check the tagRemoveButtonProps interface above
-  handleRemoveTag: (id: string | number) => void; // Function to be triggered when a tag is removed
+  text: string;
+  id: string | number;
+  tagStyle?: object;
+  tagRemoveButton: TagRemoveButtonProps;
+  handleRemoveTag: (id: string | number) => void;
 };
 export type TagsProps = {
-  defaultData?: Array<string>; // Array of Preloaded Data e.g ['Javascript', 'React']
-  placeholder?: string; // Input element placeholder
-  canDuplicate?: boolean; // Enable multiple tag with the same name
-  editOnRemove?: boolean; // Enable editing just removed tag
+  defaultData?: Array<string>;
+  placeholder?: string;
+  canDuplicate?: boolean;
+  editOnRemove?: boolean;
   autoFocus?: boolean;
 
-  inputStyle?: object; // Input element style => format == {color: 'red', backgroundColor: 'blue'}
-  inputClass?: string; // Input element className
-  style?: object; // Input element style => format == {color: 'red', backgroundColor: 'blue'}
-  containerClassName?: string; // Input element className
+  inputStyle?: object;
+  inputClass?: string;
+  style?: object;
+  containerClassName?: string;
 
-  onInputChange?: (data: any) => void; // Function to update the tags list when a tag is added or removed
-  onRemoveTag?: (tag?: string) => void; // Function to be triggered when a tag is removed
-  onAddTag?: (tag?: string) => void; // Function to be triggered when a tag is removed
-  onExisting?: (tag?: string) => void; // Function to be triggered when a tag already exist
+  onInputChange?: (data: any) => void;
+  onRemoveTag?: (tag?: string) => void;
+  onAddTag?: (tag?: string) => void;
+  onExisting?: (tag?: string) => void;
 
   // Tag Props
-  tagStyle?: object; // Object containing styles for the tag e.g {backgroundColor: 'red', padding: '30px'}
-  tagRemoveButton?: TagRemoveButtonProps; // Check the tagRemoveButtonProps interface above
+  tagStyle?: object;
+  tagRemoveButton?: TagRemoveButtonProps;
 };
